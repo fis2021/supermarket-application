@@ -52,4 +52,6 @@ public class RegistrationController {
             registrationMessage.setText(e.getMessage());
         }
     }
+
+
 }

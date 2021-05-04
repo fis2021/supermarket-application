@@ -45,8 +45,14 @@
 
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
-    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="8">
-        <Button styleClass="Button" onAction="#handleRegisterAction" text="Register"/>
+
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <Button styleClass="button" onAction="#handleRegisterAction" text="Register"/>
     </HBox>
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 
 </GridPane>

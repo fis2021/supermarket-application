@@ -46,4 +46,8 @@
         <Text fx:id="loginMessage"/>
     </HBox>
 
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
 </GridPane>
