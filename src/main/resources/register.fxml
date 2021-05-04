@@ -45,9 +45,11 @@
 
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
+    <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="8">
+        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+    </HBox>
 
-
-    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+    <HBox  alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
         <Button styleClass="button" onAction="#handleRegisterAction" text="Register"/>
     </HBox>
 
