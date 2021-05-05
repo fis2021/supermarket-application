@@ -24,6 +24,7 @@ public class LoginController {
 
     @FXML
     public void handleLoginButtonAction() {
+        String rol = new String();
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -41,7 +42,28 @@ public class LoginController {
         }
         catch(AccountExists e)
         {
-            loginMessage.setText("Correct");
+            rol = services.UserService.getUserRole(username, password);
+            if(rol.equals("Administrator")){
+                try {
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("Administrator.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 600, 400);
+                    stage.setScene(scene);
+                } catch (IOException e1) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                try {
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("Client.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 600, 400);
+                    stage.setScene(scene);
+                } catch (IOException e1) {
+                    e.printStackTrace();
+                }
+            }
+            loginMessage.setText(rol);
             return;
         }
 /*
