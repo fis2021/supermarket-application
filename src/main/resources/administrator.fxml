@@ -18,7 +18,7 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleSeeProductsAction" text="See Products"/>
+        <Button styleClass="button" onAction="#handleSeeProductsAction" text="View Products"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
