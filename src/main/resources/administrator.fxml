@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
+          vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="controllers.AdministratorController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="0">
+        <Text styleClass="title" id="title-text" text="Conectat ca Administrator" />
+    </HBox>
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button styleClass="button" onAction="#handleSeeProductsAction" text="See Products"/>
+    </HBox>
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button styleClass="button" onAction="#handleAddProductAction" text="Add Product"/>
+    </HBox>
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button styleClass="button" onAction="#handleModifyProductAction" text="Modify Product"/>
+    </HBox>
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Button styleClass="button" onAction="#handleDeleteProductAction" text="Delete Product"/>
+    </HBox>
+
+    <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button styleClass="button" onAction="#handleDisconnectAction" text="Disconnect"/>
+    </HBox>
+
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="7">
+        <Text fx:id="administratorMessage"/>
+    </HBox>
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+</GridPane>

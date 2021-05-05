@@ -58,8 +58,8 @@ public class RegistrationController {
     {
         try {
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
-            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+            Scene scene = new Scene(Login, 600, 400);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
