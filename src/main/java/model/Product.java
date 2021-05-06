@@ -38,11 +38,11 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Product product = (product) o;
+        Product product = (Product) o;
 
         if (!name.equals(product.name)) return false;
         if (!category.equals(product.category)) return false;
-        return product.code(product.code);
+        return code.equals(product.code);
     }
 
     @Override
