@@ -41,8 +41,7 @@ public class Product {
         Product product = (Product) o;
 
         if (!name.equals(product.name)) return false;
-        if (!category.equals(product.category)) return false;
-        return code.equals(product.code);
+        return quantity<product.quantity;
     }
 
     @Override

@@ -31,7 +31,8 @@ public class UserService {
 
     public static void checkUsernameAndPassword(String username,String password) throws AccountExists {
         for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername())&&Objects.equals(encodePassword(username,password), user.getPassword()))
+            if (Objects.equals(username, user.getUsername()) &&
+                Objects.equals(encodePassword(username,password), user.getPassword()))
                 throw new AccountExists(username);
         }
     }
