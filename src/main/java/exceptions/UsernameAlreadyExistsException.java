@@ -1,4 +1,5 @@
 package exceptions;
+
 public class UsernameAlreadyExistsException extends Exception {
 
     private String username;

@@ -39,8 +39,8 @@ public class RegistrationController {
     @FXML
     public void handleRegisterAction() {
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText() , (String) role.getValue(), nameField.getText(), addressField.getText(), emailField.getText());
-            registrationMessage.setText("Account created successfully!");
+            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue(), nameField.getText(), addressField.getText(), emailField.getText());
+            registrationMessage.setText("Account added successfully!");
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Scene scene = new Scene(viewStudentsRoot, 600, 400);

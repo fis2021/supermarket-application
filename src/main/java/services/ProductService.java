@@ -4,7 +4,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import exceptions.ProductExists;
+import exceptions.ProductAlreadyExistsException;
 import model.Product;
 
 import java.io.IOException;
@@ -21,22 +21,22 @@ public class ProductService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
-                .openOrCreate("test", "test");
+                .filePath(getPathToFile("Products.db").toFile())
+                .openOrCreate("test1", "test1");
 
         productRepository = database.getRepository(Product.class);
     }
 
-    public static void checkNameAndQuantity(String name,int quantity) throws ProductExists {
+    public static void checkNameAndQuantity(String name, int quantity) throws ProductAlreadyExistsException {
         for (Product product : productRepository.find()) {
             if (Objects.equals(name, product.getName())&&Objects.equals(quantity, product.getQuantity()))
-                throw new ProductExists(name);
+                throw new ProductAlreadyExistsException(name);
         }
     }
 
-    public static void addUser(String name, String category, String role, String code, int quantity) throws ProductAlreadyExistsException {
+    public static void addProduct(String name, String category, String code, Integer quantity) throws ProductAlreadyExistsException {
         checkProductDoesNotAlreadyExist(name);
-        productRepository.insert(new Product(name, category, role, name, quantity));
+        productRepository.insert(new Product(name, category, code, quantity));
     }
 
     private static void checkProductDoesNotAlreadyExist(String name) throws ProductAlreadyExistsException {

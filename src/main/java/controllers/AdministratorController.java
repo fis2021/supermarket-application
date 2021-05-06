@@ -22,7 +22,14 @@ public class AdministratorController {
 
     @FXML
     public void handleAddProductAction() {
-        administratorMessage.setText("AddProduct");
+        try {
+            Stage stage = (Stage) administratorMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

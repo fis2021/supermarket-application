@@ -1,5 +1,7 @@
 package model;
 
+import org.dizitart.no2.objects.Id;
+
 public class User {
 
     private String username;

@@ -1,16 +1,18 @@
 package model;
 
+import org.dizitart.no2.objects.Id;
+
 public class Product {
 
     private String name;
     private String category;
     private String code;
-    private int quantity;
+    private Integer quantity;
 
     public Product() {
     }
 
-    public Product(String name, String category, String code, int quantity) {
+    public Product(String name, String category, String code, Integer quantity) {
         this.name = name;
         this.category = category;
         this.code = code;
