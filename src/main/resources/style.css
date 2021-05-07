@@ -16,10 +16,6 @@
     -fx-text-fill: white;
 }
 
-.textField{
-
-}
-
 .textField:focused {
     -fx-border-style: solid;
     -fx-border-color: #f44336;

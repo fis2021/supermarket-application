@@ -30,6 +30,7 @@ public class ViewProductsController{
         for (Product product : ProductService.productRepository.find()) {
             data.add(new Product(product.getName(), product.getCategory(), product.getCode(), product.getQuantity()));
         }
+        tableView.getSelectionModel().clearSelection();
     }
 
     @FXML
@@ -38,7 +39,7 @@ public class ViewProductsController{
         try {
             Stage stage = (Stage) viewProductsMessage.getScene().getWindow();
             Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("administrator.fxml"));
-            Scene scene = new Scene(Login, 600, 400);
+            Scene scene = new Scene(Login, 900, 600);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();

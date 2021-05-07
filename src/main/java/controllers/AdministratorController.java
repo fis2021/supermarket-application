@@ -21,7 +21,7 @@ public class AdministratorController {
         try {
             Stage stage = (Stage) administratorMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewProducts.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 900, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -34,7 +34,7 @@ public class AdministratorController {
         try {
             Stage stage = (Stage) administratorMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 900, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +57,7 @@ public class AdministratorController {
         try {
             Stage stage = (Stage) administratorMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 900, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

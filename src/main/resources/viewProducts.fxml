@@ -19,13 +19,13 @@
         <Text styleClass="title" id="title-text" text="All products available" />
     </HBox>
 
-    <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    <TableView fx:id="tableView" styleClass="table" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
-            <TableColumn fx:id="NameColumn" text="Name" prefWidth="200">
+            <TableColumn text="Name" prefWidth="200">
                 <cellValueFactory><PropertyValueFactory property="name" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Category" prefWidth="200">
+            <TableColumn fx:id="CategoryColumn" text="Category" prefWidth="200">
                 <cellValueFactory><PropertyValueFactory property="category" />
                 </cellValueFactory>
             </TableColumn>
@@ -48,6 +48,7 @@
 
     <stylesheets>
         <URL value="@style.css" />
+        <URL value="@styleTable.css" />
     </stylesheets>
 
 </GridPane>

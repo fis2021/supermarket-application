@@ -32,7 +32,7 @@ public class AddProductController{
             addProductMessage.setText("Product added successfully!");
             Stage stage = (Stage) addProductMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 900, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
@@ -48,7 +48,7 @@ public class AddProductController{
         try {
             Stage stage = (Stage) addProductMessage.getScene().getWindow();
             Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("administrator.fxml"));
-            Scene scene = new Scene(Login, 900, 400);
+            Scene scene = new Scene(Login, 900, 600);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
