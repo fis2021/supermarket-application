@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import exceptions.AccountExists;
 import exceptions.UsernameAlreadyExistsException;
 
+import java.awt.*;
+import java.awt.event.*;
+
 import java.io.IOException;
 
 public class LoginController {
@@ -82,5 +85,9 @@ public class LoginController {
         }
     }
 
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleLoginButtonAction();
+    }
 }
 
