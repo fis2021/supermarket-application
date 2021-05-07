@@ -17,7 +17,7 @@ import static services.FileSystemService.getPathToFile;
 
 public class ProductService {
 
-    private static ObjectRepository<Product> productRepository;
+    public static ObjectRepository<Product> productRepository;
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
@@ -37,6 +37,12 @@ public class ProductService {
     public static void addProduct(String name, String category, String code, Integer quantity) throws ProductAlreadyExistsException {
         checkProductDoesNotAlreadyExist(name);
         productRepository.insert(new Product(name, category, code, quantity));
+    }
+
+    public static void viewProducts() {
+        for (Product product : productRepository.find()) {
+
+        }
     }
 
     private static void checkProductDoesNotAlreadyExist(String name) throws ProductAlreadyExistsException {

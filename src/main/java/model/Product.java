@@ -4,6 +4,7 @@ import org.dizitart.no2.objects.Id;
 
 public class Product {
 
+    @Id
     private String name;
     private String category;
     private String code;

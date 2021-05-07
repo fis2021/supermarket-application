@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import services.UserService;
 
 import java.io.IOException;
+import controllers.ViewProductsController;
 
 public class AdministratorController {
 
@@ -17,15 +18,23 @@ public class AdministratorController {
 
     @FXML
     public void handleSeeProductsAction() {
-        administratorMessage.setText("SeeProducts");
+        try {
+            Stage stage = (Stage) administratorMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewProducts.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 400);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     public void handleAddProductAction() {
         try {
             Stage stage = (Stage) administratorMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 400);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,7 +57,7 @@ public class AdministratorController {
         try {
             Stage stage = (Stage) administratorMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 400);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

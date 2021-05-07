@@ -46,7 +46,7 @@ public class ClientController {
         try {
             Stage stage = (Stage) clientMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 400);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

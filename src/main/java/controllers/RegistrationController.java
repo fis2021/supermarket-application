@@ -43,7 +43,7 @@ public class RegistrationController {
             registrationMessage.setText("Account added successfully!");
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 400);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class RegistrationController {
         try {
             Stage stage = (Stage) registrationMessage.getScene().getWindow();
             Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-            Scene scene = new Scene(Login, 600, 400);
+            Scene scene = new Scene(Login, 900, 400);
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
