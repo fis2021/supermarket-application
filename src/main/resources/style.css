@@ -16,7 +16,28 @@
     -fx-text-fill: white;
 }
 
+.textField {
+    -fx-border-style: solid;
+    -fx-border-color: #b3b3cc;
+    -fx-background-color: white, white, white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 1 -1;
+}
+
 .textField:focused {
+    -fx-border-style: solid;
+    -fx-border-color: #f44336;
+    -fx-background-color: white, white, white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 1 -1;
+}
+
+.choiceBox{
+    -fx-border-style: solid;
+    -fx-border-color: #b3b3cc;
+    -fx-background-color: white, white, white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 1 -1;
+}
+
+.choiceBox:focused {
     -fx-border-style: solid;
     -fx-border-color: #f44336;
     -fx-background-color: white, white, white;
