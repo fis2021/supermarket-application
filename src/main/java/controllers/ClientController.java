@@ -24,7 +24,7 @@ public class ClientController {
     public void handleViewProducts() {
         try {
             Stage stage = (Stage) clientMessage.getScene().getWindow();
-            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewProducts.fxml"));
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewProductsClient.fxml"));
             Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         } catch (IOException e) {
