@@ -39,9 +39,10 @@ public class ProductService {
         productRepository.insert(new Product(name, category, code, quantity));
     }
 
-    public static void viewProducts() {
+    public static void removeProduct(String name, String code) {
         for (Product product : productRepository.find()) {
-
+            if (Objects.equals(name, product.getName()) && Objects.equals(code, product.getCode()))
+                        productRepository.remove(product);
         }
     }
 
