@@ -5,9 +5,9 @@ import org.dizitart.no2.objects.Id;
 public class Product {
 
     @Id
+    private String code;
     private String name;
     private String category;
-    private String code;
     private Integer quantity;
 
     public Product() {
@@ -63,10 +63,6 @@ public class Product {
                 ", code='" + code + '\'' +
                 ", quantity=" + quantity +
                 '}';
-    }
-
-    public void newQuantity(int  quantity) {
-        this.quantity = quantity;
     }
 
 }

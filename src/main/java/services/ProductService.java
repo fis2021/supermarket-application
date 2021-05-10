@@ -46,6 +46,20 @@ public class ProductService {
         }
     }
 
+    public static void modifyProduct(String code, String property, String newValue) {
+        for (Product product : productRepository.find()) {
+            if (Objects.equals(code, product.getCode())){
+                if(property.equals("Name"))
+                    product.setName(newValue);
+                else if(property.equals("Category"))
+                    product.setCategory(newValue);
+                else if(property.equals("Quantity"))
+                    product.setQuantity(Integer.parseInt(newValue));
+                productRepository.update(product);
+            }
+        }
+    }
+
     private static void checkProductDoesNotAlreadyExist(String name) throws ProductAlreadyExistsException {
         for (Product product : productRepository.find()) {
             if (Objects.equals(name, product.getName()))

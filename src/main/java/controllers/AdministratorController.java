@@ -43,7 +43,14 @@ public class AdministratorController {
 
     @FXML
     public void handleModifyProductAction() {
-        administratorMessage.setText("ModifyProduct");
+        try {
+            Stage stage = (Stage) administratorMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("modifyProduct.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
