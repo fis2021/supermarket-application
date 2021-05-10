@@ -65,8 +65,4 @@ public class Product {
                 '}';
     }
 
-    public void newQuantity(int  quantity) {
-        this.quantity = quantity;
-    }
-
 }
