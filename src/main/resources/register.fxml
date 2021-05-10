@@ -28,7 +28,7 @@
 
     <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
 
-    <ChoiceBox styleClass="textField" fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <ChoiceBox styleClass="choiceBox" fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
     </ChoiceBox>
 
     <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
