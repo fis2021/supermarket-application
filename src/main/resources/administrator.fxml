@@ -30,7 +30,7 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button styleClass="button" onAction="#handleDeleteProductAction" text="Delete Product"/>
+        <Button styleClass="button" onAction="#handleRemoveProductAction" text="Remove Product"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">

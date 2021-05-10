@@ -47,8 +47,15 @@ public class AdministratorController {
     }
 
     @FXML
-    public void handleDeleteProductAction() {
-        administratorMessage.setText("DeleteProduct");
+    public void handleRemoveProductAction() {
+        try {
+            Stage stage = (Stage) administratorMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("removeProduct.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
