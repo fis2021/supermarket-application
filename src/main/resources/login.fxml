@@ -31,7 +31,7 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="5">
-        <PasswordField styleClass="textField" fx:id="passwordField"/>
+        <PasswordField styleClass="textField" fx:id="passwordField" onAction="#onEnter"/>
     </HBox>
 
     <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="6">
@@ -42,7 +42,7 @@
         <Button styleClass="button" onAction="#handleLoginButtonAction" text="Sign In"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="7">
+    <HBox alignment="center" spacing="10"  GridPane.columnSpan="2" GridPane.rowIndex="7">
         <Text fx:id="loginMessage"/>
     </HBox>
 

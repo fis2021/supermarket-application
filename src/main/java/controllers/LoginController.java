@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import exceptions.AccountExists;
 import exceptions.UsernameAlreadyExistsException;
 
+import java.awt.*;
+import java.awt.event.*;
+
 import java.io.IOException;
 
 public class LoginController {
@@ -24,6 +27,7 @@ public class LoginController {
 
     @FXML
     public void handleLoginButtonAction() {
+        String rol = new String();
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -41,28 +45,29 @@ public class LoginController {
         }
         catch(AccountExists e)
         {
-            loginMessage.setText("Correct");
-            return;
-        }
-/*
-        if (username.equals("student") && password.equals("student")) {
-            loginMessage.setText("Logged in as student!");
-            return;
-        }
-
-        if (username.equals("teacher") && password.equals("teacher")) {
-            try {
-                Stage stage = (Stage) loginMessage.getScene().getWindow();
-                Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-                Scene scene = new Scene(viewStudentsRoot, 600, 400);
-                stage.setScene(scene);
-            } catch (IOException e) {
-                e.printStackTrace();
+            rol = services.UserService.getUserRole(username, password);
+            if(rol.equals("Administrator")){
+                try {
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("administrator.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 900, 600);
+                    stage.setScene(scene);
+                } catch (IOException e1) {
+                    e.printStackTrace();
+                }
             }
-
+            else{
+                try {
+                    Stage stage = (Stage) loginMessage.getScene().getWindow();
+                    Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("client.fxml"));
+                    Scene scene = new Scene(viewStudentsRoot, 900, 600);
+                    stage.setScene(scene);
+                } catch (IOException e1) {
+                    e.printStackTrace();
+                }
+            }
             return;
-        }*/
-
+        }
 
         loginMessage.setText("Incorrect login!");
     }
@@ -73,12 +78,16 @@ public class LoginController {
         try {
             Stage stage = (Stage) loginMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-            Scene scene = new Scene(viewStudentsRoot, 600, 400);
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleLoginButtonAction();
+    }
 }
 
