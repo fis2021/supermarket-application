@@ -32,7 +32,6 @@ public class OrderService {
 
 
     public static void placeOrder(Order order) {
-        //order.setUser(model.User.getUsername());
         orderRepository.insert(order);
         for (int i=0;i<order.getContor();i++)
             for (Product product : ProductService.productRepository.find())

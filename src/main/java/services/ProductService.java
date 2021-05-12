@@ -60,6 +60,7 @@ public class ProductService {
         }
     }
 
+
     public static void modifyProduct(String name ,Integer newValue) {
         for (Product product : productRepository.find()) {
             if (Objects.equals(name, product.getName())){
