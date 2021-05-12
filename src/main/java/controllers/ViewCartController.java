@@ -22,7 +22,6 @@ import java.util.Objects;
 
 public class ViewCartController{
 
-    //public static Order comanda=new Order();
 
     @FXML
     private Text viewCartMessage;
@@ -32,7 +31,6 @@ public class ViewCartController{
 
     @FXML
     public void initialize() {
-        //Order comanda=new Order();
         ObservableList<Product> data = tableView.getItems();
         for (int i=0;i<ClientController.comanda.getContor();i++) {
             data.add(new Product(ClientController.comanda.getOrder().get(i).getName(), ClientController.comanda.getOrder().get(i).getQuantity()));
@@ -52,7 +50,6 @@ public class ViewCartController{
             e.printStackTrace();
         }
     }
-
 
     public void handleSendOrderButton() {
 
