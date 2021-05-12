@@ -53,6 +53,7 @@ public class ViewCartController{
         }
     }
 
+
     public void handleSendOrderButton() {
 
             OrderService.placeOrder(ClientController.comanda);
