@@ -20,6 +20,13 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public Product(String name, Integer quantity) {
+        this.name = name;
+        //this.category = category;
+        //this.code = code;
+        this.quantity = quantity;
+    }
+
     public String getName() {
         return name;
     }

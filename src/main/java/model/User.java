@@ -1,6 +1,12 @@
 package model;
 
-import org.dizitart.no2.objects.Id;
+import exceptions.ProductAlreadyExistsException;
+import services.OrderService;
+import services.UserService;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class User {
 
