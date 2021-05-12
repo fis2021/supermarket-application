@@ -30,6 +30,7 @@ public class OrderService {
         orderRepository = database.getRepository(Order.class);
     }
 
+
     public static void placeOrder(Order order) {
         //order.setUser(model.User.getUsername());
         orderRepository.insert(order);
