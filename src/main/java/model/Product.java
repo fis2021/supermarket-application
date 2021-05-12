@@ -13,6 +13,7 @@ public class Product {
     public Product() {
     }
 
+
     public Product(String name, String category, String code, Integer quantity) {
         this.name = name;
         this.category = category;
