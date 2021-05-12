@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import services.FileSystemService;
+import services.OrderService;
 import services.UserService;
 import services.ProductService;
 
@@ -18,6 +19,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         ProductService.initDatabase();
+        OrderService.initDatabase();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         primaryStage.setTitle("Supermarket Application");
