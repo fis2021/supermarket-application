@@ -74,7 +74,7 @@ public class RegistrationController {
             e.printStackTrace();
         }
         catch (UsernameAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
+            registrationMessage.setText("Please type an Email!");
         }
     }
 

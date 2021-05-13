@@ -16,35 +16,35 @@
     </padding>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="0">
-        <Text styleClass="title" id="title-text" text="All products available" />
+        <Text styleClass="title" id="title-text" text="View all orders" />
     </HBox>
 
     <TableView fx:id="tableView" styleClass="table" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
-            <TableColumn text="Number" prefWidth="200">
-                <cellValueFactory><PropertyValueFactory property="name" />
+            <TableColumn text="Number" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="number" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Products" prefWidth="200">
-                <cellValueFactory><PropertyValueFactory property="category" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Price" prefWidth="100">
-                <cellValueFactory><PropertyValueFactory property="quantity" />
+            <TableColumn text="Pret" prefWidth="200">
+                <cellValueFactory><PropertyValueFactory property="pretTotal" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn text="User" prefWidth="100">
-                <cellValueFactory><PropertyValueFactory property="code" />
+                <cellValueFactory><PropertyValueFactory property="user" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
+        <Button styleClass="button" onAction="#handleRemoveOrdersButton" text="Remove Orders"/>
+    </HBox>
+
+    <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
         <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
     </HBox>
 
-    <Text fx:id="viewOrdersMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Text fx:id="viewOrdersMessage" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     <stylesheets>
         <URL value="@style.css" />

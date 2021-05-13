@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 
 import model.Order;
 import model.Product;
+import model.ViewOrdersTableModel;
 import services.OrderService;
 import services.ProductService;
 import java.io.IOException;
@@ -28,11 +29,26 @@ public class ViewOrdersController{
 
     @FXML
     public void initialize() {
-        ObservableList<Order> data = tableView.getItems();
+        int i=1;
+        ObservableList<ViewOrdersTableModel> data = tableView.getItems();
         for (Order order : OrderService.orderRepository.find()) {
-            data.add(new Order(order.getOrder(), order.getUser()));
+            data.add(new ViewOrdersTableModel(i, order.pretTotal(), order.getUser()));
+            i++;
         }
         tableView.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    public void handleRemoveOrdersButton(){
+        OrderService.removeAllOrders();
+        try {
+            Stage stage = (Stage) viewOrdersMessage.getScene().getWindow();
+            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("viewOrders.fxml"));
+            Scene scene = new Scene(Login, 900, 600);
+            stage.setScene(scene);
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -37,16 +37,17 @@
         </columns>
     </TableView>
 
-    <HBox alignment="center" spacing="10" GridPane.rowIndex="5">
+    <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
+        <Text fx:id="viewCartMessage"/>
+    </HBox>
+
+    <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
         <Button styleClass="button" onAction="#handleSendOrderButton" text="Place Order"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
+    <HBox alignment="center" spacing="10" GridPane.rowIndex="4">
         <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
     </HBox>
-
-
-    <Text fx:id="viewCartMessage" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <stylesheets>
         <URL value="@style.css" />
