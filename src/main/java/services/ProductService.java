@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.ProductDoesNotExist;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -39,14 +40,17 @@ public class ProductService {
         productRepository.insert(new Product(name, category, code, quantity));
     }
 
-    public static void removeProduct(String name, String code) {
+    public static void removeProduct(String name, String code) throws ProductDoesNotExist {
         for (Product product : productRepository.find()) {
-            if (Objects.equals(name, product.getName()) && Objects.equals(code, product.getCode()))
-                        productRepository.remove(product);
+            if (Objects.equals(name, product.getName()) && Objects.equals(code, product.getCode())){
+                productRepository.remove(product);
+                return;
+            }
         }
+        throw new ProductDoesNotExist(name);
     }
 
-    public static void modifyProduct(String code, String property, String newValue) {
+    public static void modifyProduct(String code, String property, String newValue) throws ProductDoesNotExist {
         for (Product product : productRepository.find()) {
             if (Objects.equals(code, product.getCode())){
                 if(property.equals("Name"))
@@ -56,8 +60,10 @@ public class ProductService {
                 else if(property.equals("Quantity"))
                     product.setQuantity(Integer.parseInt(newValue));
                 productRepository.update(product);
+                return;
             }
         }
+        throw new ProductDoesNotExist(code);
     }
 
 

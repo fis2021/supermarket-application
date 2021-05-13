@@ -27,6 +27,30 @@ public class AddProductController{
 
     @FXML
     public void handleAddProductButton() {
+        if(nameField.getText() == null || nameField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Name!");
+            return;
+        }
+        if(categoryField.getText() == null || categoryField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Category!");
+            return;
+        }
+        if(codeField.getText() == null || codeField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Code!");
+            return;
+        }
+        if(quantityField.getText() == null || quantityField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Quantity!");
+            return;
+        }
+        try
+        {
+            Integer.parseInt(quantityField.getText());
+        } catch (NumberFormatException ex) {
+            addProductMessage.setText("Quantity must be an Integer!");
+            return;
+        }
+
         try {
             ProductService.addProduct(nameField.getText(), categoryField.getText(), codeField.getText(), Integer.parseInt(quantityField.getText()));
             addProductMessage.setText("Product added successfully!");
