@@ -37,6 +37,7 @@ public class RemoveProductController{
         }
     }
 
+
     @FXML
     public void handleBackButton()
     {

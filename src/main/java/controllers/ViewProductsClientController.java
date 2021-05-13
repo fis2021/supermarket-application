@@ -33,6 +33,7 @@ public class ViewProductsClientController{
         tableView.getSelectionModel().clearSelection();
     }
 
+
     @FXML
     public void handleBackButtonAction()
     {

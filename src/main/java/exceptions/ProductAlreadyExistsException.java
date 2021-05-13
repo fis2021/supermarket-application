@@ -1,5 +1,6 @@
 package exceptions;
 
+
 public class ProductAlreadyExistsException extends Exception{
 
     private String name;

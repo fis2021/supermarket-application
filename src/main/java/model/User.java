@@ -20,7 +20,6 @@ public class User {
     public User() {
     }
 
-
     public User(String username, String password, String role, String name, String address, String email) {
         this.username = username;
         this.password = password;

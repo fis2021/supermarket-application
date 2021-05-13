@@ -16,8 +16,6 @@ import services.OrderService;
 
 import java.io.IOException;
 
-
-
 public class ClientController {
 
     public static Order comanda=new Order();

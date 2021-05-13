@@ -53,6 +53,7 @@ public class RegistrationController {
         }
     }
 
+
     @FXML
     public void handleBackButton()
     {
