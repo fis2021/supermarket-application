@@ -28,7 +28,7 @@ public class ViewProductsController{
     public void initialize() {
         ObservableList<Product> data = tableView.getItems();
         for (Product product : ProductService.productRepository.find()) {
-            data.add(new Product(product.getName(), product.getCategory(), product.getCode(), product.getQuantity()));
+            data.add(new Product(product.getName(), product.getCategory(), product.getCode(), product.getQuantity(), product.getPrice()));
         }
         tableView.getSelectionModel().clearSelection();
     }

@@ -24,6 +24,8 @@ public class AddProductController{
     private TextField codeField;
     @FXML
     private TextField quantityField;
+    @FXML
+    private TextField priceField;
 
     @FXML
     public void handleAddProductButton() {
@@ -43,8 +45,13 @@ public class AddProductController{
             addProductMessage.setText("Please type in the Quantity!");
             return;
         }
+        if(priceField.getText() == null || priceField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Price!");
+            return;
+        }
         try
         {
+            Integer.parseInt(priceField.getText());
             Integer.parseInt(quantityField.getText());
         } catch (NumberFormatException ex) {
             addProductMessage.setText("Quantity must be an Integer!");
@@ -52,7 +59,8 @@ public class AddProductController{
         }
 
         try {
-            ProductService.addProduct(nameField.getText(), categoryField.getText(), codeField.getText(), Integer.parseInt(quantityField.getText()));
+            ProductService.addProduct(nameField.getText(), categoryField.getText(), codeField.getText(),
+                    Integer.parseInt(quantityField.getText()), Integer.parseInt(priceField.getText()));
             addProductMessage.setText("Product added successfully!");
             Stage stage = (Stage) addProductMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));

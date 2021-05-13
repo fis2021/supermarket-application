@@ -37,6 +37,10 @@
                 <cellValueFactory><PropertyValueFactory property="code" />
                 </cellValueFactory>
             </TableColumn>
+            <TableColumn text="Price (USD)" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="price" />
+                </cellValueFactory>
+            </TableColumn>
         </columns>
     </TableView>
 

@@ -27,7 +27,7 @@ public class ModifyProductController{
 
     @FXML
     public void initialize() {
-        property.getItems().addAll("Name", "Category", "Quantity");
+        property.getItems().addAll("Name", "Category", "Quantity", "Price");
     }
 
     @FXML
@@ -50,6 +50,15 @@ public class ModifyProductController{
                 Integer.parseInt(newValueField.getText());
             } catch (NumberFormatException ex) {
                 modifyProductMessage.setText("Quantity must be an Integer!");
+                return;
+            }
+        }
+        if((String) property.getValue() == "Price"){
+            try
+            {
+                Integer.parseInt(newValueField.getText());
+            } catch (NumberFormatException ex) {
+                modifyProductMessage.setText("Price must be an Integer!");
                 return;
             }
         }

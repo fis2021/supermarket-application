@@ -33,7 +33,9 @@ public class ViewCartController{
     public void initialize() {
         ObservableList<Product> data = tableView.getItems();
         for (int i=0;i<ClientController.comanda.getContor();i++) {
-            data.add(new Product(ClientController.comanda.getOrder().get(i).getName(), ClientController.comanda.getOrder().get(i).getQuantity()));
+            data.add(new Product(ClientController.comanda.getOrder().get(i).getName(),
+                                 ClientController.comanda.getOrder().get(i).getQuantity(),
+                                 ProductService.getPrice(ClientController.comanda.getOrder().get(i).getName(),ClientController.comanda.getOrder().get(i).getQuantity())));
         }
         tableView.getSelectionModel().clearSelection();
     }

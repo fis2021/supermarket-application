@@ -29,15 +29,18 @@
     <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
     <TextField styleClass="textField" fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <Label text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField styleClass="textField" fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button styleClass="button" onAction="#handleAddProductButton" text="Add Product"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+    <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
         <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
     </HBox>
 
-    <Text fx:id="addProductMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Text fx:id="addProductMessage" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
     <stylesheets>
         <URL value="@style.css" />

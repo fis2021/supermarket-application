@@ -9,21 +9,29 @@ public class Product {
     private String name;
     private String category;
     private Integer quantity;
+    private Integer price;
 
     public Product() {
     }
 
 
-    public Product(String name, String category, String code, Integer quantity) {
+    public Product(String name, String category, String code, Integer quantity, Integer price) {
         this.name = name;
         this.category = category;
         this.code = code;
         this.quantity = quantity;
+        this.price = price;
     }
 
     public Product(String name, Integer quantity) {
         this.name = name;
         this.quantity = quantity;
+    }
+
+    public Product(String name, Integer quantity, Integer price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     public String getName() {
@@ -41,6 +49,9 @@ public class Product {
 
     public int getQuantity() { return quantity;}
     public void setQuantity(int quantity) { this.quantity = quantity;}
+
+    public Integer getPrice() { return price; }
+    public void setPrice(Integer price) { this.price = price; }
 
     @Override
     public boolean equals(Object o) {
