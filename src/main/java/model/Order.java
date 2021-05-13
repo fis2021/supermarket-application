@@ -1,5 +1,8 @@
 package model;
 
+import exceptions.ItemIsNotInTheCart;
+import exceptions.NotEnoughQuantity;
+import exceptions.ProductDoesNotExist;
 import services.ProductService;
 
 import java.util.ArrayList;
@@ -7,8 +10,18 @@ import java.util.Objects;
 
 public class Order {
     private ArrayList<Product> lista=new ArrayList<Product>();
-    private User user;
+    private String user;
     private int contor=0;
+
+    public Order(ArrayList lista, String user)
+    {
+        this.lista = lista;
+        this.user = user;
+    }
+
+    public Order() {
+
+    }
 
     public boolean exista(Product produs){
         boolean temp2=false;
@@ -18,41 +31,56 @@ public class Order {
         return temp2;
     }
 
-
-
-    public void addProduct(Product product){
+    public void addProduct(Product product) throws ProductDoesNotExist, NotEnoughQuantity {
         boolean temp1=false;
         Integer temp3=0;
         for (Product k : ProductService.productRepository.find())
             if (Objects.equals(product.getName(), k.getName()))
                 temp1=true;
+        if(!temp1)
+            throw new ProductDoesNotExist(product.getName());
         for (Product k : ProductService.productRepository.find())
             if (Objects.equals(product.getName(), k.getName()))
                 temp3=k.getQuantity();
 
-            if(exista(product)) {
-                for (int i = 0; i < contor; i++)
-                    if (product.getName().equals(lista.get(i).getName()))
-                        if(lista.get(i).getQuantity() + product.getQuantity()<=temp3)
-                            lista.get(i).setQuantity(lista.get(i).getQuantity() + product.getQuantity());
-            }else
-        if (temp1)
-            if(product.getQuantity()<temp3){
-                lista.add(product);
-        contor++;}
+        if(exista(product)) {
+            for (int i = 0; i < contor; i++)
+                if (product.getName().equals(lista.get(i).getName())){
+                    temp3 = temp3 - lista.get(i).getQuantity();
+                    if(product.getQuantity() >= temp3)
+                        throw new NotEnoughQuantity(product.getName());
+                    else
+                    if(lista.get(i).getQuantity() + product.getQuantity()<=temp3)
+                        lista.get(i).setQuantity(lista.get(i).getQuantity() + product.getQuantity());
+                }
+        }else
+        if (temp1) {
+                if (product.getQuantity() <= temp3) {
+                    lista.add(product);
+                    contor++;
+                }
+                else
+                    throw new NotEnoughQuantity(product.getName());
+        }
     }
 
-    public void removeProduct(Product product){
-        for (int i=0;i<contor;i++)
-            if(product.equals(lista.get(i).getName()))
+    public void removeProduct(Product product) throws ItemIsNotInTheCart {
+        boolean ok=false;
+        for (int i=0;i<contor;i++) {
+            if (product.getName().equals(lista.get(i).getName())) {
                 lista.remove(i);
-        //lista.add(product);
-        contor--;
+                ok = true;
+                contor--;
+            }
+        }
+        if(!ok)
+            throw new ItemIsNotInTheCart(product.getName());
     }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public String getUser() { return user; }
+    public void setUser(String user) { this.user = user; }
     public ArrayList<Product> getOrder() { return lista; }
 
     public int getContor() { return contor; }
+
 }

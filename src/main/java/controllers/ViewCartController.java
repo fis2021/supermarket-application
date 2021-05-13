@@ -53,6 +53,15 @@ public class ViewCartController{
 
     public void handleSendOrderButton() {
             OrderService.placeOrder(ClientController.comanda);
+            ClientController.comanda = new Order();
+        try {
+            Stage stage = (Stage) viewCartMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("cart.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

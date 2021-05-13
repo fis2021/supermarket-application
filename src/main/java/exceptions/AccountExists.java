@@ -1,6 +1,5 @@
 package exceptions;
 
-
 public class AccountExists extends Exception {
 
     private String username;
