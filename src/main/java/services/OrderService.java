@@ -39,6 +39,7 @@ public class OrderService {
                      ProductService.modifyProduct(order.getOrder().get(i).getName(), product.getQuantity()-order.getOrder().get(i).getQuantity());
     }
 
+
     private static MessageDigest getMessageDigest() {
         MessageDigest md;
         try {

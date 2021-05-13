@@ -65,6 +65,7 @@ public class AdministratorController {
         }
     }
 
+
     @FXML
     public void handleDisconnectAction()
     {

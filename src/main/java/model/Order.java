@@ -52,7 +52,6 @@ public class Order {
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
-
     public ArrayList<Product> getOrder() { return lista; }
 
     public int getContor() { return contor; }
