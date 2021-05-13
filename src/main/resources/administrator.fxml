@@ -33,11 +33,15 @@
         <Button styleClass="button" onAction="#handleRemoveProductAction" text="Remove Product"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+    <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button styleClass="button" onAction="#handleViewOrdersAction" text="View Orders"/>
+    </HBox>
+
+    <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
         <Button styleClass="button" onAction="#handleDisconnectAction" text="Disconnect"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="7">
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="8">
         <Text fx:id="administratorMessage"/>
     </HBox>
 

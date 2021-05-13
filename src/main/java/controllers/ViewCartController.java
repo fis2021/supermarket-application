@@ -33,7 +33,9 @@ public class ViewCartController{
     public void initialize() {
         ObservableList<Product> data = tableView.getItems();
         for (int i=0;i<ClientController.comanda.getContor();i++) {
-            data.add(new Product(ClientController.comanda.getOrder().get(i).getName(), ClientController.comanda.getOrder().get(i).getQuantity()));
+            data.add(new Product(ClientController.comanda.getOrder().get(i).getName(),
+                                 ClientController.comanda.getOrder().get(i).getQuantity(),
+                                 ProductService.getPrice(ClientController.comanda.getOrder().get(i).getName(),ClientController.comanda.getOrder().get(i).getQuantity())));
         }
         tableView.getSelectionModel().clearSelection();
     }
@@ -53,6 +55,15 @@ public class ViewCartController{
 
     public void handleSendOrderButton() {
             OrderService.placeOrder(ClientController.comanda);
+            ClientController.comanda = new Order();
+        try {
+            Stage stage = (Stage) viewCartMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("cart.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

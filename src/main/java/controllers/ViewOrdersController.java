@@ -10,25 +10,27 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.collections.ObservableList;
 
+import model.Order;
 import model.Product;
+import services.OrderService;
 import services.ProductService;
 import java.io.IOException;
 import java.util.Objects;
 
 
-public class ViewProductsController{
+public class ViewOrdersController{
 
     @FXML
-    private Text viewProductsMessage;
+    private Text viewOrdersMessage;
 
     @FXML
     private TableView tableView;
 
     @FXML
     public void initialize() {
-        ObservableList<Product> data = tableView.getItems();
-        for (Product product : ProductService.productRepository.find()) {
-            data.add(new Product(product.getName(), product.getCategory(), product.getCode(), product.getQuantity(), product.getPrice()));
+        ObservableList<Order> data = tableView.getItems();
+        for (Order order : OrderService.orderRepository.find()) {
+            data.add(new Order(order.getOrder(), order.getUser()));
         }
         tableView.getSelectionModel().clearSelection();
     }
@@ -37,7 +39,7 @@ public class ViewProductsController{
     public void handleBackButton()
     {
         try {
-            Stage stage = (Stage) viewProductsMessage.getScene().getWindow();
+            Stage stage = (Stage) viewOrdersMessage.getScene().getWindow();
             Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("administrator.fxml"));
             Scene scene = new Scene(Login, 900, 600);
             stage.setScene(scene);

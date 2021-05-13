@@ -10,7 +10,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.ViewProductsClientController">
+          fx:controller="controllers.ViewOrdersController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -21,34 +21,30 @@
 
     <TableView fx:id="tableView" styleClass="table" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <columns>
-            <TableColumn text="Name" prefWidth="200">
+            <TableColumn text="Number" prefWidth="200">
                 <cellValueFactory><PropertyValueFactory property="name" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="CategoryColumn" text="Category" prefWidth="200">
+            <TableColumn text="Products" prefWidth="200">
                 <cellValueFactory><PropertyValueFactory property="category" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Quantity" prefWidth="100">
+            <TableColumn text="Price" prefWidth="100">
                 <cellValueFactory><PropertyValueFactory property="quantity" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Code" prefWidth="100">
+            <TableColumn text="User" prefWidth="100">
                 <cellValueFactory><PropertyValueFactory property="code" />
-                </cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Price (USD)" prefWidth="100">
-                <cellValueFactory><PropertyValueFactory property="price" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleBackButtonAction" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
     </HBox>
 
-    <Text fx:id="viewProductsClientMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Text fx:id="viewOrdersMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
     <stylesheets>
         <URL value="@style.css" />

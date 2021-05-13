@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.ProductDoesNotExist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,11 +27,42 @@ public class ModifyProductController{
 
     @FXML
     public void initialize() {
-        property.getItems().addAll("Name", "Category", "Quantity");
+        property.getItems().addAll("Name", "Category", "Quantity", "Price");
     }
 
     @FXML
     public void handleModifyProductButton() {
+        if(codeField.getText() == null || codeField.getText().isEmpty()){
+            modifyProductMessage.setText("Please type in the Code!");
+            return;
+        }
+        if((String) property.getValue() == null || ((String) property.getValue()).isEmpty()){
+            modifyProductMessage.setText("Please select a Property!");
+            return;
+        }
+        if(newValueField.getText() == null || newValueField.getText().isEmpty()){
+            modifyProductMessage.setText("Please type in the New Value!");
+            return;
+        }
+        if((String) property.getValue() == "Quantity"){
+            try
+            {
+                Integer.parseInt(newValueField.getText());
+            } catch (NumberFormatException ex) {
+                modifyProductMessage.setText("Quantity must be an Integer!");
+                return;
+            }
+        }
+        if((String) property.getValue() == "Price"){
+            try
+            {
+                Integer.parseInt(newValueField.getText());
+            } catch (NumberFormatException ex) {
+                modifyProductMessage.setText("Price must be an Integer!");
+                return;
+            }
+        }
+
         try {
             ProductService.modifyProduct(codeField.getText(), (String) property.getValue(), newValueField.getText());
             modifyProductMessage.setText("Product modified successfully!");
@@ -40,6 +72,8 @@ public class ModifyProductController{
             stage.setScene(scene);
         }catch(IOException e) {
             e.printStackTrace();
+        }catch(ProductDoesNotExist e){
+            modifyProductMessage.setText("This product doesn't exist");
         }
     }
 

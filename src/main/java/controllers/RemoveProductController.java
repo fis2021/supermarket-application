@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.ProductDoesNotExist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,6 +26,14 @@ public class RemoveProductController{
 
     @FXML
     public void handleRemoveProductButton() {
+        if(nameField.getText() == null || nameField.getText().isEmpty()){
+            removeProductMessage.setText("Please type in the Name!");
+            return;
+        }
+        if(codeField.getText() == null || codeField.getText().isEmpty()){
+            removeProductMessage.setText("Please type in the Code!");
+            return;
+        }
         try {
             ProductService.removeProduct(nameField.getText(), codeField.getText());
             removeProductMessage.setText("Product removed successfully!");
@@ -32,6 +41,8 @@ public class RemoveProductController{
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("removeProduct.fxml"));
             Scene scene = new Scene(viewStudentsRoot, 900, 600);
             stage.setScene(scene);
+        }catch(ProductDoesNotExist e) {
+            removeProductMessage.setText("This product doesn't exist");
         }catch(IOException e) {
             e.printStackTrace();
         }
