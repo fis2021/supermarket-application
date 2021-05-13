@@ -24,11 +24,43 @@ public class AddProductController{
     private TextField codeField;
     @FXML
     private TextField quantityField;
+    @FXML
+    private TextField priceField;
 
     @FXML
     public void handleAddProductButton() {
+        if(nameField.getText() == null || nameField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Name!");
+            return;
+        }
+        if(categoryField.getText() == null || categoryField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Category!");
+            return;
+        }
+        if(codeField.getText() == null || codeField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Code!");
+            return;
+        }
+        if(quantityField.getText() == null || quantityField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Quantity!");
+            return;
+        }
+        if(priceField.getText() == null || priceField.getText().isEmpty()){
+            addProductMessage.setText("Please type in the Price!");
+            return;
+        }
+        try
+        {
+            Integer.parseInt(priceField.getText());
+            Integer.parseInt(quantityField.getText());
+        } catch (NumberFormatException ex) {
+            addProductMessage.setText("Quantity must be an Integer!");
+            return;
+        }
+
         try {
-            ProductService.addProduct(nameField.getText(), categoryField.getText(), codeField.getText(), Integer.parseInt(quantityField.getText()));
+            ProductService.addProduct(nameField.getText(), categoryField.getText(), codeField.getText(),
+                    Integer.parseInt(quantityField.getText()), Integer.parseInt(priceField.getText()));
             addProductMessage.setText("Product added successfully!");
             Stage stage = (Stage) addProductMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("addProduct.fxml"));

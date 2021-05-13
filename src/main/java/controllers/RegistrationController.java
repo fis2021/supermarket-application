@@ -38,6 +38,31 @@ public class RegistrationController {
 
     @FXML
     public void handleRegisterAction() {
+        if(usernameField.getText() == null || usernameField.getText().isEmpty()){
+            registrationMessage.setText("Please type and Username!");
+            return;
+        }
+        if(passwordField.getText() == null || passwordField.getText().isEmpty()){
+            registrationMessage.setText("Please type a Password!");
+            return;
+        }
+        if((String) role.getValue() == null || ((String) role.getValue()).isEmpty()){
+            registrationMessage.setText("Please select a Role!");
+            return;
+        }
+        if(nameField.getText() == null || nameField.getText().isEmpty()){
+            registrationMessage.setText("Please type a Name!");
+            return;
+        }
+        if(addressField.getText() == null || addressField.getText().isEmpty()){
+            registrationMessage.setText("Please type an Address!");
+            return;
+        }
+        if(emailField.getText() == null || emailField.getText().isEmpty()){
+            registrationMessage.setText("Please type an Email!");
+            return;
+        }
+
         try {
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue(), nameField.getText(), addressField.getText(), emailField.getText());
             registrationMessage.setText("Account added successfully!");

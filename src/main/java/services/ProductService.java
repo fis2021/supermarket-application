@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.ProductDoesNotExist;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -27,26 +28,22 @@ public class ProductService {
         productRepository = database.getRepository(Product.class);
     }
 
-    public static void checkNameAndQuantity(String name, int quantity) throws ProductAlreadyExistsException {
-        for (Product product : productRepository.find()) {
-            if (Objects.equals(name, product.getName())&&Objects.equals(quantity, product.getQuantity()))
-                throw new ProductAlreadyExistsException(name);
-        }
-    }
-
-    public static void addProduct(String name, String category, String code, Integer quantity) throws ProductAlreadyExistsException {
+    public static void addProduct(String name, String category, String code, Integer quantity, Integer price) throws ProductAlreadyExistsException {
         checkProductDoesNotAlreadyExist(name);
-        productRepository.insert(new Product(name, category, code, quantity));
+        productRepository.insert(new Product(name, category, code, quantity, price));
     }
 
-    public static void removeProduct(String name, String code) {
+    public static void removeProduct(String name, String code) throws ProductDoesNotExist {
         for (Product product : productRepository.find()) {
-            if (Objects.equals(name, product.getName()) && Objects.equals(code, product.getCode()))
-                        productRepository.remove(product);
+            if (Objects.equals(name, product.getName()) && Objects.equals(code, product.getCode())){
+                productRepository.remove(product);
+                return;
+            }
         }
+        throw new ProductDoesNotExist(name);
     }
 
-    public static void modifyProduct(String code, String property, String newValue) {
+    public static void modifyProduct(String code, String property, String newValue) throws ProductDoesNotExist {
         for (Product product : productRepository.find()) {
             if (Objects.equals(code, product.getCode())){
                 if(property.equals("Name"))
@@ -55,9 +52,13 @@ public class ProductService {
                     product.setCategory(newValue);
                 else if(property.equals("Quantity"))
                     product.setQuantity(Integer.parseInt(newValue));
+                else if(property.equals("Price"))
+                    product.setPrice(Integer.parseInt(newValue));
                 productRepository.update(product);
+                return;
             }
         }
+        throw new ProductDoesNotExist(code);
     }
 
 
@@ -68,6 +69,16 @@ public class ProductService {
                 productRepository.update(product);
             }
         }
+    }
+
+    public static int getPrice(String name ,Integer quantity) {
+        int price = 1;
+        for (Product product : productRepository.find()) {
+            if (Objects.equals(name, product.getName())){
+                price = product.getPrice();
+            }
+        }
+        return price * quantity;
     }
 
     private static void checkProductDoesNotAlreadyExist(String name) throws ProductAlreadyExistsException {

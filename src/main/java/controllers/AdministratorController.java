@@ -28,7 +28,6 @@ public class AdministratorController {
         }
     }
 
-
     @FXML
     public void handleAddProductAction() {
         try {
@@ -65,6 +64,18 @@ public class AdministratorController {
         }
     }
 
+    @FXML
+    public void handleViewOrdersAction()
+    {
+        try {
+            Stage stage = (Stage) administratorMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewOrders.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void handleDisconnectAction()
