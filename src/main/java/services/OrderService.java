@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import org.dizitart.no2.objects.filters.ObjectFilters;
@@ -30,6 +31,10 @@ public class OrderService {
                 .openOrCreate("test2", "test2");
 
         orderRepository = database.getRepository(Order.class);
+    }
+
+    public static List<Order> getAllOrders(){
+        return orderRepository.find().toList();
     }
 
     public static void placeOrder(Order order) throws CartIsEmptyException{
