@@ -3,6 +3,7 @@ package model;
 import exceptions.ItemIsNotInTheCart;
 import exceptions.NotEnoughQuantity;
 import exceptions.ProductDoesNotExist;
+import org.dizitart.no2.objects.Id;
 import services.ProductService;
 
 import java.util.ArrayList;
@@ -11,16 +12,15 @@ import java.util.Objects;
 public class Order {
     private ArrayList<Product> lista=new ArrayList<Product>();
     private String user;
+    private int pretTotal;
     private int contor=0;
-
-    public Order(ArrayList lista, String user)
-    {
-        this.lista = lista;
-        this.user = user;
-    }
 
     public Order() {
 
+    }
+
+    public Order(String user) {
+        this.user = user;
     }
 
     public boolean exista(Product produs){
@@ -29,6 +29,14 @@ public class Order {
             if(produs.getName().equals(lista.get(i).getName()))
                 temp2=true;
         return temp2;
+    }
+
+    public int pretTotal(){
+        int s=0;
+        for (int i = 0; i < contor; i++){
+            s = s +  ProductService.getPrice(lista.get(i).getName(), lista.get(i).getQuantity());
+        }
+        return s;
     }
 
     public void addProduct(Product product) throws ProductDoesNotExist, NotEnoughQuantity {

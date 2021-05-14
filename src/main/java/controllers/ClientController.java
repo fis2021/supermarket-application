@@ -99,6 +99,19 @@ public class ClientController {
     }
 
     @FXML
+    public void handleViewOrders()
+    {
+        try {
+            Stage stage = (Stage) clientMessage.getScene().getWindow();
+            Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("viewOrdersClient.fxml"));
+            Scene scene = new Scene(viewStudentsRoot, 900, 600);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void handleDisconnect()
     {
         try {
@@ -109,5 +122,10 @@ public class ClientController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleAddToCart();
     }
 }

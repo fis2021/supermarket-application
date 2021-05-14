@@ -50,8 +50,8 @@ public class Product {
     public int getQuantity() { return quantity;}
     public void setQuantity(int quantity) { this.quantity = quantity;}
 
-    public Integer getPrice() { return price; }
-    public void setPrice(Integer price) { this.price = price; }
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
 
     @Override
     public boolean equals(Object o) {

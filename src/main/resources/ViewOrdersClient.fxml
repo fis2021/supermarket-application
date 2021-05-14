@@ -10,7 +10,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.ViewOrdersController">
+          fx:controller="controllers.ViewOrdersClientController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -36,15 +36,11 @@
         </columns>
     </TableView>
 
-    <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleRemoveOrdersButton" text="Remove Orders"/>
-    </HBox>
-
     <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
         <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
     </HBox>
 
-    <Text fx:id="viewOrdersMessage" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Text fx:id="viewOrdersClientMessage" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     <stylesheets>
         <URL value="@style.css" />

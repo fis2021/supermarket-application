@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.CartIsEmptyException;
 import exceptions.ProductAlreadyExistsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,8 +55,15 @@ public class ViewCartController{
     }
 
     public void handleSendOrderButton() {
+        try {
+            ClientController.comanda.setUser(LoginController.user);
             OrderService.placeOrder(ClientController.comanda);
-            ClientController.comanda = new Order();
+            ClientController.comanda = new Order(ClientController.comanda.getUser());
+        } catch (CartIsEmptyException e){
+            viewCartMessage.setText("Cart is empty!");
+            return;
+        }
+
         try {
             Stage stage = (Stage) viewCartMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("cart.fxml"));

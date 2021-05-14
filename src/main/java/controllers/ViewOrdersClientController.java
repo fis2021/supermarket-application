@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-public class ViewOrdersController{
+public class ViewOrdersClientController{
 
     @FXML
-    private Text viewOrdersMessage;
+    private Text viewOrdersClientMessage;
 
     @FXML
     private TableView tableView;
@@ -32,6 +32,7 @@ public class ViewOrdersController{
         int i=1;
         ObservableList<ViewOrdersTableModel> data = tableView.getItems();
         for (Order order : OrderService.orderRepository.find()) {
+            if(order.getUser().equals(ClientController.comanda.getUser()))
             data.add(new ViewOrdersTableModel(i, order.pretTotal(), order.getUser()));
             i++;
         }
@@ -39,24 +40,11 @@ public class ViewOrdersController{
     }
 
     @FXML
-    public void handleRemoveOrdersButton(){
-        OrderService.removeAllOrders();
-        try {
-            Stage stage = (Stage) viewOrdersMessage.getScene().getWindow();
-            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("viewOrders.fxml"));
-            Scene scene = new Scene(Login, 900, 600);
-            stage.setScene(scene);
-        }catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     public void handleBackButton()
     {
         try {
-            Stage stage = (Stage) viewOrdersMessage.getScene().getWindow();
-            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("administrator.fxml"));
+            Stage stage = (Stage) viewOrdersClientMessage.getScene().getWindow();
+            Parent Login = FXMLLoader.load(getClass().getClassLoader().getResource("client.fxml"));
             Scene scene = new Scene(Login, 900, 600);
             stage.setScene(scene);
         }catch(IOException e) {
