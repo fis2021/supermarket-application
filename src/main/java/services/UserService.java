@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static services.FileSystemService.getPathToFile;
@@ -22,6 +23,7 @@ public class UserService {
     private static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Users.db").toFile())
                 .openOrCreate("test", "test");
@@ -47,6 +49,10 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
+    }
+
+    public static List<User> getAllUsers(){
+        return userRepository.find().toList();
     }
 
     private static String encodePassword(String salt, String password) {
