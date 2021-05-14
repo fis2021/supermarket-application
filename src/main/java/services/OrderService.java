@@ -26,6 +26,7 @@ public class OrderService {
     public static ObjectRepository<Order> orderRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Orders.db").toFile())
                 .openOrCreate("test2", "test2");

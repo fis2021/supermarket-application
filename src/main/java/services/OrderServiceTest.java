@@ -23,8 +23,8 @@ class OrderServiceTest {
 
     @Test
     void TestBazaDeDateGoala(){
-        //assertThat(OrderService.getAllOrders()).isNotNull();
-        //assertThat(OrderService.getAllOrders()).isEmpty();
+        assertNotEquals(null, OrderService.getAllOrders());       //assertThat(OrderService.getAllOrders()).isNotNull();
+        assertTrue(OrderService.getAllOrders().isEmpty());         //assertThat(OrderService.getAllOrders()).isEmpty();
     }
 
     @Test
@@ -33,7 +33,7 @@ class OrderServiceTest {
         ProductService.addProduct("Paine", "Paine", "001", 10, 10);
         order.addProduct(new Product("Paine", 5));
         OrderService.placeOrder(order);
-        //assertThat(OrderService.getAllOrders().get(0)).isEqualTo(order);
+        assertEquals(order, OrderService.getAllOrders().get(0));      //assertThat(OrderService.getAllOrders().get(0)).isEqualTo(order);
     }
 
     @Test
@@ -41,13 +41,13 @@ class OrderServiceTest {
         Order order= new Order();
         ProductService.addProduct("Paine", "Paine", "001", 10, 10);
         order.addProduct(new Product("Paine", 5));
-        //assertThat(OrderService.getAllOrders()).isNotNull();
-        //assertThat(OrderService.getAllOrders()).isEmpty();
+        assertNotEquals(null, OrderService.getAllOrders());       //assertThat(OrderService.getAllOrders()).isNotNull();
+        assertTrue(OrderService.getAllOrders().isEmpty());              //assertThat(OrderService.getAllOrders()).isEmpty();
         OrderService.placeOrder(order);
-        //assertThat(OrderService.getAllOrders()).isNotEmpty();
-        //assertThat(OrderService.getAllOrders()).size().isEqualTo(1);
+        assertFalse(OrderService.getAllOrders().isEmpty());        //assertThat(OrderService.getAllOrders()).isNotEmpty();
+        assertEquals(1, OrderService.getAllOrders().size())    ;//assertThat(OrderService.getAllOrders()).size().isEqualTo(1);
         OrderService.removeAllOrders();
-        //assertThat(OrderService.getAllOrders()).isNotNull();
-        //assertThat(OrderService.getAllOrders()).isEmpty();
+        assertNotEquals(null, OrderService.getAllOrders());         //assertThat(OrderService.getAllOrders()).isNotNull();
+        assertTrue(OrderService.getAllOrders().isEmpty());          //assertThat(OrderService.getAllOrders()).isEmpty();
     }
 }
