@@ -1,6 +1,7 @@
 package services;
 
 import exceptions.ProductDoesNotExist;
+import model.User;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static services.FileSystemService.getPathToFile;
@@ -26,6 +28,10 @@ public class ProductService {
                 .openOrCreate("test1", "test1");
 
         productRepository = database.getRepository(Product.class);
+    }
+
+    public static List<Product> getAllProducts(){
+        return productRepository.find().toList();
     }
 
     public static void addProduct(String name, String category, String code, Integer quantity, Integer price) throws ProductAlreadyExistsException {
