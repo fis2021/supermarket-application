@@ -123,4 +123,9 @@ public class ClientController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleAddToCart();
+    }
 }

@@ -86,4 +86,9 @@ public class AddProductController{
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleAddProductButton();
+    }
 }

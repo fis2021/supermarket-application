@@ -92,4 +92,9 @@ public class RegistrationController {
         }
     }
 
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleRegisterAction();
+    }
+
 }

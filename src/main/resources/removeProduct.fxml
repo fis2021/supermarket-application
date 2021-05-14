@@ -21,7 +21,7 @@
     <TextField styleClass="textField" fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
     <Label text="Code:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField styleClass="textField" fx:id="codeField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <TextField styleClass="textField" fx:id="codeField" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#onEnter"/>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button styleClass="button" onAction="#handleRemoveProductButton" text="Remove Product"/>

@@ -41,7 +41,7 @@
 
     <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
 
-    <TextField styleClass="textField" fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <TextField styleClass="textField" fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6" onAction="#onEnter"/>
 
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
