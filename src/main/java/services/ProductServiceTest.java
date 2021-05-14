@@ -77,4 +77,12 @@ class ProductServiceTest {
         int temp1= ProductService.getPrice("Paine", 5);
         //assertThat(temp1).isEqualTo(50);
     }
+
+    @Test
+    void ProductCannotBeAddedTwice() {
+        /*AssertThrows(ProductAlreadyExistsException.class, () ->{
+            ProductService.addProduct("Paine", "Paine", "001", 10, 10);
+            ProductService.addProduct("Paine", "Paine", "001", 10, 10);
+    });*/
+    }
 }
