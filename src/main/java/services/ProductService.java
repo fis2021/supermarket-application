@@ -23,6 +23,7 @@ public class ProductService {
     public static ObjectRepository<Product> productRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Products.db").toFile())
                 .openOrCreate("test1", "test1");
