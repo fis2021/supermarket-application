@@ -56,6 +56,7 @@ public class ViewCartController{
 
     public void handleSendOrderButton() {
         try {
+            ClientController.comanda.setUser(LoginController.user);
             OrderService.placeOrder(ClientController.comanda);
             ClientController.comanda = new Order(ClientController.comanda.getUser());
         } catch (CartIsEmptyException e){

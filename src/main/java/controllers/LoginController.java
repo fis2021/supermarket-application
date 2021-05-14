@@ -29,11 +29,13 @@ public class LoginController {
     @FXML
     public TextField usernameField;
 
+    public static String user;
+
     @FXML
     public void handleLoginButtonAction() {
 
-        String rol = new String();
         String username = usernameField.getText();
+        String rol = new String();
         String password = passwordField.getText();
 
         if (username == null || username.isEmpty()) {
@@ -63,6 +65,7 @@ public class LoginController {
             }
             else{
                 try {
+                    user = usernameField.getText();
                     Stage stage = (Stage) loginMessage.getScene().getWindow();
                     Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("client.fxml"));
                     Scene scene = new Scene(viewStudentsRoot, 900, 600);

@@ -21,7 +21,7 @@ import java.io.IOException;
 
 public class ClientController {
 
-    public static Order comanda=new Order("Luca");
+    public static Order comanda=new Order();
 
     @FXML
     private Text clientMessage;
