@@ -30,7 +30,7 @@
     <TextField styleClass="textField" fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     <Label text="Price:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField styleClass="textField" fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField styleClass="textField" fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="5" onAction="#onEnter"/>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button styleClass="button" onAction="#handleAddProductButton" text="Add Product"/>

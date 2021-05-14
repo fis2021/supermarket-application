@@ -91,4 +91,9 @@ public class ModifyProductController{
         }
     }
 
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleModifyProductButton();
+    }
+
 }

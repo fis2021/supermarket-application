@@ -74,7 +74,7 @@ public class RegistrationController {
             e.printStackTrace();
         }
         catch (UsernameAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
+            registrationMessage.setText("Please type an Email!");
         }
     }
 
@@ -90,6 +90,11 @@ public class RegistrationController {
         }catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onEnter(javafx.event.ActionEvent actionEvent) {
+        handleRegisterAction();
     }
 
 }

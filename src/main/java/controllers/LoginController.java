@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.ProductDoesNotExist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,11 +11,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import exceptions.AccountExists;
 import exceptions.UsernameAlreadyExistsException;
+import model.Product;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class LoginController {
@@ -26,10 +29,13 @@ public class LoginController {
     @FXML
     public TextField usernameField;
 
+    public static String user;
+
     @FXML
     public void handleLoginButtonAction() {
-        String rol = new String();
+
         String username = usernameField.getText();
+        String rol = new String();
         String password = passwordField.getText();
 
         if (username == null || username.isEmpty()) {
@@ -59,6 +65,7 @@ public class LoginController {
             }
             else{
                 try {
+                    user = usernameField.getText();
                     Stage stage = (Stage) loginMessage.getScene().getWindow();
                     Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("client.fxml"));
                     Scene scene = new Scene(viewStudentsRoot, 900, 600);

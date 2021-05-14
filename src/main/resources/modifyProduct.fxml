@@ -25,7 +25,7 @@
     </ChoiceBox>
 
     <Label text="New Value:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField styleClass="textField" fx:id="newValueField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField styleClass="textField" fx:id="newValueField" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#onEnter"/>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button styleClass="button" onAction="#handleModifyProductButton" text="Modify Product"/>

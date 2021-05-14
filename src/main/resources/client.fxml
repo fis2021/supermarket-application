@@ -25,25 +25,32 @@
     <TextField styleClass="textField" fx:id="productNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField styleClass="textField" fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <TextField styleClass="textField" fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#onEnter"/>
 
-    <HBox  spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleAddToCart" text="Add To Cart"/>
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="4">
+        <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
+            <Button styleClass="button" onAction="#handleAddToCart" text="Add To Cart"/>
+        </HBox>
+        <HBox  spacing="10" GridPane.columnIndex="1"  GridPane.rowIndex="4">
+            <Button styleClass="button" onAction="#handleRemoveProduct" text="Remove Product"/>
+        </HBox>
     </HBox>
 
-    <HBox  spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleRemoveProduct" text="Remove Product"/>
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="5">
+        <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <Button styleClass="button" onAction="#handleViewCart" text="View Cart"/>
+        </HBox>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button styleClass="button" onAction="#handleViewOrders" text="View Orders"/>
+        </HBox>
     </HBox>
 
-    <HBox spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleViewCart" text="View Cart"/>
-    </HBox>
 
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="5">
+    <HBox alignment="center"  spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="6">
         <Button styleClass="button" onAction="#handleDisconnect" text="Disconnect"/>
     </HBox>
 
-    <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="6">
+    <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="7">
         <Text fx:id="clientMessage"/>
     </HBox>
 
