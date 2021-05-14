@@ -14,6 +14,10 @@ public class FileSystemService {
         return Paths.get(USER_FOLDER, APPLICATION_FOLDER).resolve(Paths.get(".", path));
     }
 
+    public static Path getApplicationHomeFolder(){
+        return Paths.get(USER_FOLDER, APPLICATION_FOLDER);
+    }
+
     static void initDirectory() {
         Path applicationHomePath = Paths.get(USER_FOLDER, APPLICATION_FOLDER);
         if (!Files.exists(applicationHomePath))
