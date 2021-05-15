@@ -69,7 +69,6 @@ public class LoginController {
             }
             return;
         }
-
         loginMessage.setText("Incorrect login!");
     }
 

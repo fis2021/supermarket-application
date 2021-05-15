@@ -20,7 +20,7 @@ import org.testfx.framework.junit5.Start;
 import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
-class RegistrationTest {
+class RegistrationControllerTest {
 
     public static final String USERNAME = "user";
     public static final String PASSWORD = "password";
@@ -55,36 +55,16 @@ class RegistrationTest {
 
     @Test
     void testRegistration(FxRobot robot) {
-        robot.clickOn("#backRegisterButton");
-        robot.clickOn("#registerLoginButton");
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Username!");
         robot.clickOn("#username");
         robot.write(USERNAME);
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type a Password!");
         robot.clickOn("#password");
         robot.write(PASSWORD);
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please select a Role!");
         robot.clickOn("#role");
         robot.clickOn("Administrator");
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type a Name!");
         robot.clickOn("#name");
         robot.write(NAME);
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Address!");
         robot.clickOn("#address");
         robot.write(ADDRESS);
-
-        robot.clickOn("#registerButton");
-        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Email!");
         robot.clickOn("#email");
         robot.write(EMAIL);
         robot.clickOn("#registerButton");
@@ -111,5 +91,42 @@ class RegistrationTest {
         robot.write("1");
         robot.clickOn("#registerButton");
         assertThat(UserService.getAllUsers()).size().isEqualTo(2);
+    }
+
+    @Test
+    void testRegistrationIncomplete(FxRobot robot) {
+        robot.clickOn("#backRegisterButton");
+        robot.clickOn("#registerLoginButton");
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Username!");
+        robot.clickOn("#username");
+        robot.write("Incomplete");
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type a Password!");
+        robot.clickOn("#password");
+        robot.write(PASSWORD);
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please select a Role!");
+        robot.clickOn("#role");
+        robot.clickOn("Administrator");
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type a Name!");
+        robot.clickOn("#name");
+        robot.write(NAME);
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Address!");
+        robot.clickOn("#address");
+        robot.write(ADDRESS);
+
+        robot.clickOn("#registerButton");
+        assertThat(robot.lookup("#registrationMessage").queryText()).hasText("Please type an Email!");
+        robot.clickOn("#email");
+        robot.write(EMAIL);
+        robot.clickOn("#registerButton");
     }
 }
