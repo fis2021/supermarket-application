@@ -18,17 +18,17 @@
     </HBox>
 
     <Label text="Code:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <TextField styleClass="textField" fx:id="codeField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField styleClass="textField" fx:id="codeField" id="codeModifyProductAdmin" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
     <Label text="Property:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <ChoiceBox styleClass="choiceBox" fx:id="property" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+    <ChoiceBox styleClass="choiceBox" fx:id="property" id="propertyModifyProduct" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
     </ChoiceBox>
 
     <Label text="New Value:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField styleClass="textField" fx:id="newValueField" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#onEnter"/>
+    <TextField styleClass="textField" fx:id="newValueField" id="newValue" GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#onEnter"/>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button styleClass="button" onAction="#handleModifyProductButton" text="Modify Product"/>
+        <Button styleClass="button" onAction="#handleModifyProductButton" id="modifyProductButton" text="Modify Product"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
