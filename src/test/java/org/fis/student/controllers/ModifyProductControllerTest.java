@@ -25,7 +25,7 @@ import static org.testfx.assertions.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ApplicationExtension.class)
-class ModifyControllerTest {
+class ModifyProductControllerTest {
 
     public static final String NAME = "name";
     public static final String CATEGORY = "category";
@@ -55,7 +55,7 @@ class ModifyControllerTest {
     @Start
     void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("modifyProduct.fxml"));
-        primaryStage.setTitle("Add Product Example");
+        primaryStage.setTitle("Modify Product Example");
         primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
     }
