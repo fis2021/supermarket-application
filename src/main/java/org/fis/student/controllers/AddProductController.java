@@ -45,6 +45,13 @@ public class AddProductController{
             addProductMessage.setText("Please type in the Quantity!");
             return;
         }
+        try
+        {
+            Integer.parseInt(quantityField.getText());
+        } catch (NumberFormatException ex) {
+            addProductMessage.setText("Quantity must be an Integer!");
+            return;
+        }
         if(priceField.getText() == null || priceField.getText().isEmpty()){
             addProductMessage.setText("Please type in the Price!");
             return;
@@ -52,9 +59,8 @@ public class AddProductController{
         try
         {
             Integer.parseInt(priceField.getText());
-            Integer.parseInt(quantityField.getText());
         } catch (NumberFormatException ex) {
-            addProductMessage.setText("Quantity must be an Integer!");
+            addProductMessage.setText("Price must be an Integer!");
             return;
         }
 

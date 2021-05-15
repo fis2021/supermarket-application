@@ -22,7 +22,7 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button styleClass="button" onAction="#handleAddProductAction" text="Add Product"/>
+        <Button styleClass="button" onAction="#handleAddProductAction" id="adminAddProductButton" text="Add Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">

@@ -6,6 +6,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 
 import org.fis.student.exceptions.ProductAlreadyExistsException;
 import org.fis.student.model.Product;
+import org.fis.student.model.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

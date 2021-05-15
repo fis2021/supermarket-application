@@ -1,6 +1,5 @@
 package org.fis.student.exceptions;
 
-
 public class ProductAlreadyExistsException extends Exception{
 
     private String name;
