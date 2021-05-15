@@ -32,7 +32,7 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" id="backModifyProductAdmin" text="Back"/>
     </HBox>
 
     <Text fx:id="modifyProductMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>

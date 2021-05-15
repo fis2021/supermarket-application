@@ -18,7 +18,7 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleSeeProductsAction" text="View Products"/>
+        <Button styleClass="button" onAction="#handleSeeProductsAction" id="adminViewProducts" text="View Products"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -26,19 +26,19 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleModifyProductAction" text="Modify Product"/>
+        <Button styleClass="button" onAction="#handleModifyProductAction" id="adminModifyProduct" text="Modify Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button styleClass="button" onAction="#handleRemoveProductAction" text="Remove Product"/>
+        <Button styleClass="button" onAction="#handleRemoveProductAction" id="adminRemoveProduct" text="Remove Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button styleClass="button" onAction="#handleViewOrdersAction" text="View Orders"/>
+        <Button styleClass="button" onAction="#handleViewOrdersAction" id="adminViewOrders" text="View Orders"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button styleClass="button" onAction="#handleDisconnectAction" text="Disconnect"/>
+        <Button styleClass="button" onAction="#handleDisconnectAction" id="adminDisconnect" text="Disconnect"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="8">

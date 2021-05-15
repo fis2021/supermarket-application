@@ -93,7 +93,7 @@ class AddProductControllerTest {
 
     @Test
     void testAddProductIncomplete(FxRobot robot) {
-        robot.clickOn("#backAddProductButton");
+        robot.clickOn("#backAddProductAdmin");
         robot.clickOn("#adminAddProductButton");
 
         robot.clickOn("#addProductAddProductButton");
