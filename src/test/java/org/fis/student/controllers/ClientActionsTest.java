@@ -12,6 +12,7 @@ import org.fis.student.exceptions.ProductAlreadyExistsException;
 import org.fis.student.exceptions.ProductDoesNotExist;
 import org.fis.student.model.Order;
 import org.fis.student.model.Product;
+import org.fis.student.model.User;
 import org.fis.student.services.FileSystemService;
 import org.fis.student.services.OrderService;
 import org.fis.student.services.ProductService;
@@ -116,21 +117,16 @@ class ClientActionsTest {
 
     @Test
     void AddOrders(FxRobot robot) throws ProductAlreadyExistsException, ProductDoesNotExist, NotEnoughQuantity, CartIsEmptyException {
-        ProductService.addProduct(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
+        ProductService.addProduct(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY)+50, Integer.parseInt(PRICE));
         robot.clickOn("#productNameField");
         robot.write(NAME);
         robot.clickOn("#quantityField");
         robot.write(QUANTITY);
-        /*Product produs=new Product(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
-        Order order=new Order();
-        order.addProduct(produs);
-        order.setUser("c");
-        OrderService.placeOrder(order);*/
         robot.clickOn("#clientAddToCart");
         robot.clickOn("#viewCart");
         robot.clickOn("#sendOrderClient");
         robot.clickOn("#backCart");
-        //robot.clickOn("#clientViewOrders");
         assertEquals(1, OrderService.getAllOrders().size());
     }
+
 }
