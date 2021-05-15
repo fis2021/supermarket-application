@@ -8,7 +8,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.AdministratorController">
+          fx:controller="org.fis.student.controllers.AdministratorController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -18,27 +18,27 @@
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleSeeProductsAction" text="View Products"/>
+        <Button styleClass="button" onAction="#handleSeeProductsAction" id="adminViewProducts" text="View Products"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button styleClass="button" onAction="#handleAddProductAction" text="Add Product"/>
+        <Button styleClass="button" onAction="#handleAddProductAction" id="adminAddProductButton" text="Add Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleModifyProductAction" text="Modify Product"/>
+        <Button styleClass="button" onAction="#handleModifyProductAction" id="adminModifyProduct" text="Modify Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-        <Button styleClass="button" onAction="#handleRemoveProductAction" text="Remove Product"/>
+        <Button styleClass="button" onAction="#handleRemoveProductAction" id="adminRemoveProduct" text="Remove Product"/>
     </HBox>
 
     <HBox  alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button styleClass="button" onAction="#handleViewOrdersAction" text="View Orders"/>
+        <Button styleClass="button" onAction="#handleViewOrdersAction" id="adminViewOrders" text="View Orders"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button styleClass="button" onAction="#handleDisconnectAction" text="Disconnect"/>
+        <Button styleClass="button" onAction="#handleDisconnectAction" id="adminDisconnect" text="Disconnect"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="8">

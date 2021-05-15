@@ -10,7 +10,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.ViewProductsClientController">
+          fx:controller="org.fis.student.controllers.ViewProductsClientController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -45,7 +45,7 @@
     </TableView>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="2">
-        <Button styleClass="button" onAction="#handleBackButtonAction" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButtonAction" id="backViewProducts" text="Back"/>
     </HBox>
 
     <Text fx:id="viewProductsClientMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>

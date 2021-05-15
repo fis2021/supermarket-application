@@ -8,7 +8,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.RegistrationController">
+          fx:controller="org.fis.student.controllers.RegistrationController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -19,38 +19,32 @@
     </HBox>
 
     <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-
-    <TextField styleClass="textField" fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField styleClass="textField" fx:id="usernameField" id="username" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
     <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-
-    <PasswordField styleClass="textField" fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <PasswordField styleClass="textField" fx:id="passwordField" id="password"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-
-    <ChoiceBox styleClass="choiceBox" fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <ChoiceBox styleClass="choiceBox" fx:id="role" id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
     </ChoiceBox>
 
     <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-
-    <TextField styleClass="textField" fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField styleClass="textField" fx:id="nameField" id="name" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-
-    <TextField styleClass="textField" fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField styleClass="textField" fx:id="addressField" id="address"  GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <TextField styleClass="textField" fx:id="emailField" id="email" GridPane.columnIndex="1" GridPane.rowIndex="6" onAction="#onEnter"/>
 
-    <TextField styleClass="textField" fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6" onAction="#onEnter"/>
-
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Text fx:id="registrationMessage" id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
     <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="8">
-        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" id="backRegisterButton" text="Back"/>
     </HBox>
 
     <HBox  alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-        <Button styleClass="button" onAction="#handleRegisterAction" text="Register"/>
+        <Button styleClass="button" onAction="#handleRegisterAction" id="registerButton" text="Register"/>
     </HBox>
 
     <stylesheets>

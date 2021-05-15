@@ -11,7 +11,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.ViewCartController">
+          fx:controller="org.fis.student.controllers.ViewCartController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -42,11 +42,11 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
-        <Button styleClass="button" onAction="#handleSendOrderButton" text="Place Order"/>
+        <Button styleClass="button" onAction="#handleSendOrderButton" id="sendOrderClient" text="Place Order"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" id="backCart" text="Back"/>
     </HBox>
 
     <stylesheets>

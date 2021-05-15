@@ -8,7 +8,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="10" prefHeight="400" prefWidth="600"
           vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="controllers.ClientController">
+          fx:controller="org.fis.student.controllers.ClientController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -18,30 +18,30 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="1">
-        <Button styleClass="button" onAction="#handleViewProducts" text="View Products"/>
+        <Button styleClass="button" onAction="#handleViewProducts" id="ClientViewProducts" text="View Products"/>
     </HBox>
 
     <Label text="Product Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField styleClass="textField" fx:id="productNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <TextField styleClass="textField" fx:id="productNameField" id="productNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField styleClass="textField" fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#onEnter"/>
+    <TextField styleClass="textField" fx:id="quantityField" id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#onEnter"/>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="4">
         <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-            <Button styleClass="button" onAction="#handleAddToCart" text="Add To Cart"/>
+            <Button styleClass="button" onAction="#handleAddToCart" id="clientAddToCart" text="Add To Cart"/>
         </HBox>
         <HBox  spacing="10" GridPane.columnIndex="1"  GridPane.rowIndex="4">
-            <Button styleClass="button" onAction="#handleRemoveProduct" text="Remove Product"/>
+            <Button styleClass="button" onAction="#handleRemoveProduct" id="clientRemoveProduct" text="Remove Product"/>
         </HBox>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="5">
         <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="5">
-            <Button styleClass="button" onAction="#handleViewCart" text="View Cart"/>
+            <Button styleClass="button" onAction="#handleViewCart" id="viewCart" text="View Cart"/>
         </HBox>
         <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-            <Button styleClass="button" onAction="#handleViewOrders" text="View Orders"/>
+            <Button styleClass="button" onAction="#handleViewOrders" id="clientViewOrders" text="View Orders"/>
         </HBox>
     </HBox>
 
@@ -51,7 +51,7 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="7">
-        <Text fx:id="clientMessage"/>
+        <Text fx:id="clientMessage" id="clientMessage"/>
     </HBox>
 
     <stylesheets>
