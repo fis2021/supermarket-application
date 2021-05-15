@@ -28,10 +28,14 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
+    public static ObjectRepository<User> getDatabase(){
+        return userRepository;
+    }
+
     public static void checkUsernameAndPassword(String username,String password) throws AccountExists {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()) &&
-                Objects.equals(encodePassword(username,password), user.getPassword()))
+                    Objects.equals(encodePassword(username,password), user.getPassword()))
                 throw new AccountExists(username);
         }
     }
@@ -73,12 +77,12 @@ public class UserService {
         return md;
     }
 
-   public static String getUserRole(String username, String password){
+    public static String getUserRole(String username, String password){
         String rol = new String();
         for (User user : userRepository.find()) {
-                if (Objects.equals(username, user.getUsername())&&Objects.equals(encodePassword(username,password), user.getPassword()))
-                    rol = user.getRole();
+            if (Objects.equals(username, user.getUsername())&&Objects.equals(encodePassword(username,password), user.getPassword()))
+                rol = user.getRole();
         }
         return rol;
-   }
+    }
 }

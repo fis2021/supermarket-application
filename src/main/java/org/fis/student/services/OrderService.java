@@ -28,6 +28,10 @@ public class OrderService {
         orderRepository = database.getRepository(Order.class);
     }
 
+    public static ObjectRepository<Order> getDatabase(){
+        return orderRepository;
+    }
+
     public static List<Order> getAllOrders(){
         return orderRepository.find().toList();
     }

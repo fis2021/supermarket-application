@@ -17,6 +17,11 @@ class UserServiceTest {
         UserService.initDatabase();
     }
 
+    @AfterEach
+    void tearDown() {
+        UserService.getDatabase().close();
+    }
+
     @Test
     void TestBazaDeDateGoala(){
         assertNotEquals(null,UserService.getAllUsers());  //assertThat(UserService.getAllUsers()).isNotNull();

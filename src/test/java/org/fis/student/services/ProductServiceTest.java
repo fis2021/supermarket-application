@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.fis.student.exceptions.ProductAlreadyExistsException;
 import org.fis.student.exceptions.ProductDoesNotExist;
 import org.fis.student.model.Product;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,11 @@ class ProductServiceTest {
         FileSystemService.APPLICATION_FOLDER=".testProduse";
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         ProductService.initDatabase();
+    }
+
+    @AfterEach
+    void tearDown() {
+        ProductService.getDatabase().close();
     }
 
     @Test

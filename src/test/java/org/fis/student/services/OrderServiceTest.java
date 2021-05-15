@@ -7,6 +7,7 @@ import org.fis.student.exceptions.ProductAlreadyExistsException;
 import org.fis.student.exceptions.ProductDoesNotExist;
 import org.fis.student.model.Order;
 import org.fis.student.model.Product;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +18,15 @@ class OrderServiceTest {
     @BeforeEach
     void setUp() throws Exception{
         FileSystemService.APPLICATION_FOLDER=".testOrder";
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        //FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         OrderService.initDatabase();
+        ProductService.initDatabase();
+    }
+
+    @AfterEach
+    void tearDown() {
+        OrderService.getDatabase().close();
+        ProductService.getDatabase().close();
     }
 
     @Test
@@ -31,9 +39,10 @@ class OrderServiceTest {
     void OrderAdded() throws ProductAlreadyExistsException, ProductDoesNotExist, NotEnoughQuantity, CartIsEmptyException {
         Order order= new Order();
         ProductService.addProduct("Paine", "Paine", "001", 10, 10);
-        order.addProduct(new Product("Paine", 5));
+        order.addProduct(new Product("Paine", "Paine", "001", 10, 10));
         OrderService.placeOrder(order);
-        assertEquals(order, OrderService.getAllOrders().get(0));      //assertThat(OrderService.getAllOrders().get(0)).isEqualTo(order);
+        order=OrderService.getAllOrders().get(0);
+        assertEquals(order.getOrder().get(0).toString(), new Product("Paine", "Paine", "001", 10, 10).toString());      //assertThat(OrderService.getAllOrders().get(0)).isEqualTo(order);
     }
 
     @Test

@@ -5,6 +5,7 @@ import org.fis.student.exceptions.ItemIsNotInTheCart;
 import org.fis.student.exceptions.NotEnoughQuantity;
 import org.fis.student.exceptions.ProductAlreadyExistsException;
 import org.fis.student.exceptions.ProductDoesNotExist;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.fis.student.services.FileSystemService;
@@ -21,7 +22,14 @@ class OrderTest {
         FileSystemService.APPLICATION_FOLDER=".testOrder";
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         OrderService.initDatabase();
+        ProductService.initDatabase();
     }
+
+    @AfterEach
+    void tearDown() {
+        OrderService.getDatabase().close();
+    }
+
 
     @Test
     void ExistaVerifica() throws ProductDoesNotExist, NotEnoughQuantity, ProductAlreadyExistsException {

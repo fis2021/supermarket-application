@@ -27,6 +27,10 @@ public class ProductService {
         productRepository = database.getRepository(Product.class);
     }
 
+    public static ObjectRepository<Product> getDatabase(){
+        return productRepository;
+    }
+
     public static List<Product> getAllProducts(){
         return productRepository.find().toList();
     }
@@ -68,7 +72,7 @@ public class ProductService {
     public static void modifyProduct(String name ,Integer newValue) {
         for (Product product : productRepository.find()) {
             if (Objects.equals(name, product.getName())){
-                    product.setQuantity(newValue);
+                product.setQuantity(newValue);
                 productRepository.update(product);
             }
         }
