@@ -18,7 +18,8 @@ class OrderServiceTest {
     @BeforeEach
     void setUp() throws Exception{
         FileSystemService.APPLICATION_FOLDER=".testOrder";
-        //FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        FileSystemService.initDirectory();
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         OrderService.initDatabase();
         ProductService.initDatabase();
     }

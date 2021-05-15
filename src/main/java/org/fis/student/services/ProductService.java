@@ -18,17 +18,19 @@ public class ProductService {
 
     public static ObjectRepository<Product> productRepository;
 
+    public static Nitrite database;
+
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Products.db").toFile())
                 .openOrCreate("test1", "test1");
 
         productRepository = database.getRepository(Product.class);
     }
 
-    public static ObjectRepository<Product> getDatabase(){
-        return productRepository;
+    public static Nitrite getDatabase(){
+        return database;
     }
 
     public static List<Product> getAllProducts(){

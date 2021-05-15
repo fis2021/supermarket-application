@@ -19,17 +19,19 @@ public class OrderService {
 
     public static ObjectRepository<Order> orderRepository;
 
+    public static Nitrite database;
+
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Orders.db").toFile())
                 .openOrCreate("test2", "test2");
 
         orderRepository = database.getRepository(Order.class);
     }
 
-    public static ObjectRepository<Order> getDatabase(){
-        return orderRepository;
+    public static Nitrite getDatabase(){
+        return database;
     }
 
     public static List<Order> getAllOrders(){

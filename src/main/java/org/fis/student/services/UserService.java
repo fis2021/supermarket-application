@@ -19,17 +19,19 @@ public class UserService {
 
     private static ObjectRepository<User> userRepository;
 
+    private static Nitrite database;
+
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Users.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
     }
 
-    public static ObjectRepository<User> getDatabase(){
-        return userRepository;
+    public static Nitrite getDatabase(){
+        return database;
     }
 
     public static void checkUsernameAndPassword(String username,String password) throws AccountExists {

@@ -15,6 +15,7 @@ class ProductServiceTest {
     @BeforeEach
     void setUp() throws Exception{
         FileSystemService.APPLICATION_FOLDER=".testProduse";
+        FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         ProductService.initDatabase();
     }
