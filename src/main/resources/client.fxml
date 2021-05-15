@@ -32,7 +32,7 @@
             <Button styleClass="button" onAction="#handleAddToCart" id="clientAddToCart" text="Add To Cart"/>
         </HBox>
         <HBox  spacing="10" GridPane.columnIndex="1"  GridPane.rowIndex="4">
-            <Button styleClass="button" onAction="#handleRemoveProduct" text="Remove Product"/>
+            <Button styleClass="button" onAction="#handleRemoveProduct" id="clientRemoveProduct" text="Remove Product"/>
         </HBox>
     </HBox>
 
@@ -41,7 +41,7 @@
             <Button styleClass="button" onAction="#handleViewCart" id="viewCart" text="View Cart"/>
         </HBox>
         <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-            <Button styleClass="button" onAction="#handleViewOrders" text="View Orders"/>
+            <Button styleClass="button" onAction="#handleViewOrders" id="clientViewOrders" text="View Orders"/>
         </HBox>
     </HBox>
 

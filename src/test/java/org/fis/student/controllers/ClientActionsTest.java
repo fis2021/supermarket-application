@@ -1,11 +1,17 @@
 package org.fis.student.controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.fis.student.exceptions.CartIsEmptyException;
+import org.fis.student.exceptions.NotEnoughQuantity;
 import org.fis.student.exceptions.ProductAlreadyExistsException;
+import org.fis.student.exceptions.ProductDoesNotExist;
+import org.fis.student.model.Order;
+import org.fis.student.model.Product;
 import org.fis.student.services.FileSystemService;
 import org.fis.student.services.OrderService;
 import org.fis.student.services.ProductService;
@@ -57,7 +63,7 @@ class ClientActionsTest {
     }
 
     @Test
-    void TestViewProducts(FxRobot robot) throws ProductAlreadyExistsException {
+    void TestAddViewProducts(FxRobot robot) throws ProductAlreadyExistsException {
         robot.clickOn("#ClientViewProducts");
         robot.clickOn("#backViewProducts");
 
@@ -82,5 +88,49 @@ class ClientActionsTest {
         ProductService.addProduct(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
         robot.clickOn("#clientAddToCart");
         robot.clickOn("#viewCart");
+    }
+
+    @Test
+    void TestAddRemoveProduct(FxRobot robot) throws ProductAlreadyExistsException {
+        robot.clickOn("#productNameField");
+        robot.write(NAME);
+        robot.clickOn("#quantityField");
+        robot.write(QUANTITY);
+        ProductService.addProduct(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
+        robot.clickOn("#clientAddToCart");
+        assertThat(ClientController.comanda.getOrder()).size().isEqualTo(1);
+        robot.clickOn("#viewCart");
+        robot.clickOn("#backCart");
+        robot.clickOn("#clientRemoveProduct");
+        assertThat(robot.lookup("#clientMessage").queryText()).hasText("Please type in a name!");
+        robot.clickOn("#productNameField");
+        robot.write(NAME);
+        robot.clickOn("#clientRemoveProduct");
+        assertThat(robot.lookup("#clientMessage").queryText()).hasText("Quantity must be an Integer!");
+        robot.clickOn("#quantityField");
+        robot.write(QUANTITY);
+        robot.clickOn("#clientRemoveProduct");
+        assertThat(ClientController.comanda.getOrder()).size().isEqualTo(0);
+        robot.clickOn("#viewCart");
+    }
+
+    @Test
+    void AddOrders(FxRobot robot) throws ProductAlreadyExistsException, ProductDoesNotExist, NotEnoughQuantity, CartIsEmptyException {
+        ProductService.addProduct(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
+        robot.clickOn("#productNameField");
+        robot.write(NAME);
+        robot.clickOn("#quantityField");
+        robot.write(QUANTITY);
+        /*Product produs=new Product(NAME, CATEGORY, CODE, Integer.parseInt(QUANTITY), Integer.parseInt(PRICE));
+        Order order=new Order();
+        order.addProduct(produs);
+        order.setUser("c");
+        OrderService.placeOrder(order);*/
+        robot.clickOn("#clientAddToCart");
+        robot.clickOn("#viewCart");
+        robot.clickOn("#sendOrderClient");
+        robot.clickOn("#backCart");
+        //robot.clickOn("#clientViewOrders");
+        assertEquals(1, OrderService.getAllOrders().size());
     }
 }

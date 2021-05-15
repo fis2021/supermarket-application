@@ -42,11 +42,11 @@
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
-        <Button styleClass="button" onAction="#handleSendOrderButton" text="Place Order"/>
+        <Button styleClass="button" onAction="#handleSendOrderButton" id="sendOrderClient" text="Place Order"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="4">
-        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" id="backCart" text="Back"/>
     </HBox>
 
     <stylesheets>
