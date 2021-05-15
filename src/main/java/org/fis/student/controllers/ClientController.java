@@ -48,6 +48,13 @@ public class ClientController {
             clientMessage.setText("Please type in the quantity!");
             return;
         }
+        try
+        {
+            Integer.parseInt(quantityField.getText());
+        } catch (NumberFormatException ex) {
+            clientMessage.setText("Quantity must be an Integer!");
+            return;
+        }
         try {
             comanda.addProduct(new Product(productNameField.getText(), Integer.parseInt(quantityField.getText())));
             Stage stage = (Stage) clientMessage.getScene().getWindow();
@@ -70,6 +77,13 @@ public class ClientController {
             return;
         }
         try {
+            try
+            {
+                Integer.parseInt(quantityField.getText());
+            } catch (NumberFormatException ex) {
+                clientMessage.setText("Quantity must be an Integer!");
+                return;
+            }
             comanda.removeProduct(new Product(productNameField.getText(), 1));
             Stage stage = (Stage) clientMessage.getScene().getWindow();
             Parent viewStudentsRoot = FXMLLoader.load(getClass().getClassLoader().getResource("client.fxml"));

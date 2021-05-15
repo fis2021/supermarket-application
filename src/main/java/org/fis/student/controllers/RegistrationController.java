@@ -39,7 +39,7 @@ public class RegistrationController {
     @FXML
     public void handleRegisterAction() {
         if(usernameField.getText() == null || usernameField.getText().isEmpty()){
-            registrationMessage.setText("Please type and Username!");
+            registrationMessage.setText("Please type an Username!");
             return;
         }
         if(passwordField.getText() == null || passwordField.getText().isEmpty()){
@@ -74,7 +74,7 @@ public class RegistrationController {
             e.printStackTrace();
         }
         catch (UsernameAlreadyExistsException e) {
-            registrationMessage.setText("Please type an Email!");
+            registrationMessage.setText(e.getMessage());
         }
     }
 

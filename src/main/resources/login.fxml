@@ -35,7 +35,7 @@
     </HBox>
 
     <HBox alignment="bottom_left" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="6">
-        <Button styleClass="button" onAction="#handleRegisterButton" text="Register"/>
+        <Button styleClass="button" onAction="#handleRegisterButton" id="registerLoginButton" text="Register"/>
     </HBox>
 
     <HBox  alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
