@@ -1,10 +1,13 @@
 package org.fis.student.controllers;
 
+import com.sun.glass.events.KeyEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.assertj.core.internal.bytebuddy.asm.Advice;
 import org.fis.student.exceptions.UsernameAlreadyExistsException;
 import org.fis.student.services.OrderService;
 import org.fis.student.services.ProductService;
@@ -52,7 +55,7 @@ class LoginControllerTest {
     }
 
     @Test
-    void testLogin(FxRobot robot) {
+    void testLoginClient(FxRobot robot) {
         try {
             UserService.addUser(USERNAME, PASSWORD, "Client", USERNAME, "addressTest", "emailTest");
         }catch (UsernameAlreadyExistsException e){};
@@ -65,6 +68,21 @@ class LoginControllerTest {
         robot.write(PASSWORD);
 
         robot.clickOn("#loginButton");
+    }
+
+    @Test
+    void testLoginAdministrator(FxRobot robot) {
+        try {
+            UserService.addUser(USERNAME, PASSWORD, "Administrator", USERNAME, "addressTest", "emailTest");
+        }catch (UsernameAlreadyExistsException e){};
+
+        robot.clickOn("#usernameLogin");
+        robot.write(USERNAME);
+        robot.clickOn("#passwordLogin");
+        robot.write(PASSWORD);
+
+        robot.press(KeyCode.valueOf("ENTER"));
+        robot.release(KeyCode.valueOf("ENTER"));
     }
 
     @Test
