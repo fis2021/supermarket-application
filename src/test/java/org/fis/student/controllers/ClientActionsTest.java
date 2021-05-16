@@ -129,4 +129,15 @@ class ClientActionsTest {
         assertEquals(1, OrderService.getAllOrders().size());
     }
 
+    @Test
+    void ViewOrders(FxRobot robot) {
+        robot.clickOn("#clientViewOrders");
+        robot.clickOn("#backClientOrders");
+    }
+
+    @Test
+    void clientDisconnect(FxRobot robot) {
+        robot.clickOn("#clientDisconnectButton");
+    }
+
 }

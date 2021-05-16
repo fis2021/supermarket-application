@@ -47,7 +47,7 @@
 
 
     <HBox alignment="center"  spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="6">
-        <Button styleClass="button" onAction="#handleDisconnect" text="Disconnect"/>
+        <Button styleClass="button" onAction="#handleDisconnect" id="clientDisconnectButton" text="Disconnect"/>
     </HBox>
 
     <HBox alignment="center" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="7">

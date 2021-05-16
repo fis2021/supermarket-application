@@ -37,7 +37,7 @@
     </TableView>
 
     <HBox alignment="center" spacing="10" GridPane.rowIndex="3">
-        <Button styleClass="button" onAction="#handleBackButton" text="Back"/>
+        <Button styleClass="button" onAction="#handleBackButton" id="backClientOrders" text="Back"/>
     </HBox>
 
     <Text fx:id="viewOrdersClientMessage" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
